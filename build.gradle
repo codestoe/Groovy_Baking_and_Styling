@@ -9,15 +9,43 @@ buildscript {
 }
 
 plugins {
-        id 'org.jbake.site' version '1.0.0'
+    id 'org.jbake.site' version '1.0.0'
+    id "org.groocss.groocss-gradle-plugin" version '0.8'
 }
 
 jbake {
     configuration['template.masterindex.file'] = 'index.tpl'
     configuration['template.topic.file'] = 'topic.tpl'
-//    configuration['render.tags'] = 'true'
-    configuration['render.sitemap'] = 'true'
+    configuration['render.tags'] = 'false'
+    configuration['render.sitemap'] = 'false'
+    configuration['render.feed'] = 'false'
+    configuration['render.archive'] = 'false'
     configuration['site.contextPath'] = '/'
     configuration['site.title'] = 'Groovy Baking and Styling'
     configuration['site.subtitle'] = 'A static site build example. Using gradle and jbake (with groovy templates), styling with GrooCSS.'
+}
+
+
+groocss {
+    prettyPrint = true
+}
+
+groocssfiles {
+    css {
+        inFile = file("src/groocss/base.groocss")
+        outFile = file("build/jbake/css/base.css")
+    }
+}
+
+import com.monochromeroad.gradle.plugin.aws.s3.S3Sync
+
+task deploy(type: S3Sync) {
+    description = "Deploys my site on a s3 bucket."
+
+    accessKey 'AKIAIUE4KXBVJORVA3SA'
+    secretKey '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'
+
+
+    from "build/jbake"
+    into "groovy-baking"
 }
