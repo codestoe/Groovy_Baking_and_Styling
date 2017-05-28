@@ -1,2 +1,4 @@
 # Groovy Baking and Styling
+
+
 A static site build example. Using gradle and jbake (with groovy templates), styling with GrooCSS.

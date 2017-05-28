@@ -1,3 +1,23 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath "com.monochromeroad.gradle-plugins:gradle-aws-s3-sync:0.10"
+    }
+}
+
 plugins {
-    id 'org.jbake.site' version '1.0.0'
+        id 'org.jbake.site' version '1.0.0'
+}
+
+jbake {
+    configuration['template.masterindex.file'] = 'index.tpl'
+    configuration['template.topic.file'] = 'topic.tpl'
+//    configuration['render.tags'] = 'true'
+    configuration['render.sitemap'] = 'true'
+    configuration['site.contextPath'] = '/'
+    configuration['site.title'] = 'Groovy Baking and Styling'
+    configuration['site.subtitle'] = 'A static site build example. Using gradle and jbake (with groovy templates), styling with GrooCSS.'
 }
