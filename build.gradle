@@ -14,15 +14,18 @@ plugins {
 }
 
 jbake {
-    configuration['template.masterindex.file'] = 'index.tpl'
-    configuration['template.topic.file'] = 'topic.tpl'
     configuration['render.tags'] = 'false'
     configuration['render.sitemap'] = 'false'
     configuration['render.feed'] = 'false'
     configuration['render.archive'] = 'false'
+    configuration['index.paginate'] = 'false'
     configuration['site.contextPath'] = '/'
     configuration['site.title'] = 'Groovy Baking and Styling'
     configuration['site.subtitle'] = 'A static site build example. Using gradle and jbake (with groovy templates), styling with GrooCSS.'
+    configuration['template.masterindex.file'] = 'index.tpl'
+    configuration['template.archive.file'] = 'archive.tpl'
+    configuration['template.post.file'] = 'post.tpl'
+    configuration['template.topic.file'] = 'topic.tpl'
 }
 
 
@@ -32,7 +35,7 @@ groocss {
 
 groocssfiles {
     css {
-        inFile = file("src/groocss/base.groocss")
+        inFile = file("src/groocss/base.groovy")
         outFile = file("build/jbake/css/base.css")
     }
 }

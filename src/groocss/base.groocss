@@ -1,5 +1,0 @@
-def backgroundColor = c('#bfffa0')
-
-_.body {
-    background backgroundColor
-}

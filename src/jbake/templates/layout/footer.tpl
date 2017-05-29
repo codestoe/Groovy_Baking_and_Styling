@@ -1,8 +1,7 @@
-
-div(class:"row"){
-    div(class:"small-12 small-text-center"){
+div(class:"footer"){
+    div(class:"center"){
         p(class:"muted credit"){
-         yield "2017 - ${new Date().format("yyyy")} | "
+         yield "2016 - ${new Date().format("yyyy")} | "
          yield " | Baked with "
          a(href:"https://jbake.org","JBake ${version}")
          yield " | Built with "

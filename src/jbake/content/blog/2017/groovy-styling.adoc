@@ -1,0 +1,39 @@
+= Groovy Styling
+Christian Streibl
+2017-05-29
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: blog, groovy, GrooCSS, static-stie, CSS, asciidoc
+:idprefix:
+
+== GrooCSS
+Now what we did, was building a s(i/a)mple static site with gradle. Somehow it does not represent our understanding style.
+That 's why we want to go for some style now.
+Style in the webs is done by CSS (Cascading Style Sheet)
+
+=== Css intro:
+So let's have a quick look at this CSS
+
+* the way to layout and style web pages
+* are a set of rules
+* rules are applied according to __cascading__ onto a __matching__ element
+
+==== CSS Selectors
+
+* a query language for html elements
+* usualy defines a pattern in the element tree
+* similar to xpath
+* uses tags, classes, attributes and relationships
+* specificity sets the priority in concurrent rule definitions
+* last seen rule wins
+* specificity http://specificity.keegan.st
+
+=== GrooCSS:
+Now putting together all these css can be groovy. With GrooCSS. groocss.org says:
+
+ "Like Less but without inventing a new language.
+GrooCSS let's you code your CSS in Groovy, using a natural Groovy DSL with code completion if your IDE supports it.
+It was created by Adam L. Davis (@adamldavis) and inspired by the many other Groovy-based projects out there...
+Principles: Stay in pure Groovy, get as close to CSS as possible, and maximize code reuse."
+
+Ok, but what does this mean in detail?

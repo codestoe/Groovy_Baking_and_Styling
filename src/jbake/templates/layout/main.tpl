@@ -7,10 +7,12 @@ html(lang:'en'){
 
     body() {
         include template: 'layout/menu.tpl'
-
-        main {
+        hr(class:'standardDivider')
+        main(class:'wrapBody'){
             bodyContents()
         }
+        newLine()
+        hr(class:'standardDivider')
         newLine()
         include template: 'layout/footer.tpl'
 

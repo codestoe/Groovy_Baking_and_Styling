@@ -1,0 +1,35 @@
+= Groovy Baking
+Christian Streibl
+2017-05-17
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: blog, groovy, static-stie, jbake, asciidoc
+:idprefix:
+
+Let us see how JBake is doing things.
+
+== Folder Structure
+
+Lets take a look at the folder structure
+
+=== Assets Dir
+ * The assets directory is where you should place your static files such as images, CSS files and JavaScript files etc. These files are copied over to the baked output as is. You can create any directory structure you like in the assets directory and this structure will be maintained when copied
+
+=== Content Dir
+The content directory is where your content files should be placed, these files will be "mixed" with the templates to generate the baked output. Again you can create any directory structure you like for your content, this structure will be maintained when the baked output is created.
+
+The extension of the content file determines what type of content it contains
+
+ * The metadata header defines some basic information that JBake uses when baking the content file.
+ * In the header you must have at least the status & type fields, the rest are optional. The only exception to this rule is if you define a default status in your configuration file.
+ ** The type field defines the template used to bake the content with.
+ * If you leave the date field out then the files last modified timestamp will be used instead.
+ * For an AsciiDoc formatted content file the metadata header section is optional. So we use AsciiDoc
+ * JBake related attributes included in the AsciiDoc header require the `jbake-` prefix to avoid any collisions.
+
+=== Templates
+The templates directory is where your templates files go, these files are "mixed" with your content files to generate the baked output. You should place your templates into the root of this directory.
+   The extension of the template file determines the template engine
+   It is recommended that you don’t mix different template types, try to stick to just 1 type of templates in your project.
+
+   For more information on what you can do in each template engine have a look at the example templates provided with JBake and their respective documentation: Freemarker, Groovy, Thymeleaf & Jade.

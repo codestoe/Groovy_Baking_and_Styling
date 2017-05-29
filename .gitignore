@@ -6,6 +6,4 @@ gradle/
 .gradletasknamecache
 .DS_Store
 src/talk/
-.jar
-.css
 
