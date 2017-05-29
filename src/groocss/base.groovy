@@ -18,18 +18,19 @@ _.wrapBody {
 }
 
 
-_.articleHeader {
+div _.articleHeader {
     marginTop 10.px
     marginLeft 20.px
 }
 
 _.indexContent {
     marginBottom 10.px
+//    add ' .h2', { fontSize 2.in }
+//    fontSize 2.vw + 2.vh TODO report an issue
 }
 
 _.blogDate {
     marginTop 5.px
-    border: '1px solid'
 }
 
 sg '#olderPosts',  {

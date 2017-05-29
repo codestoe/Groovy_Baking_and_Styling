@@ -29,6 +29,6 @@ layout 'layout/main.tpl', true,
         }
         hr(class:'standardDivider')
         div(class:"sg", id:'olderPosts'){
-            yield 'Older post are available in the' a(href:"${config.site_contextPath}${config.archive_file}","&nbsp ./archive")
+            yield 'Older post are available in the' a(href:"${config.site_contextPath}${config.archive_file}","&nbsp archive")
         }
     }

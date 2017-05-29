@@ -7,7 +7,7 @@ nav(class:"navbar navbar-toggleable-md navbar-inverse bg-inverse") {
                 a(class:'nav-link', href:"${config.site_contextPath}index.html","Home")
             }
             li(class:'nav-item') {
-                a(class:'nav-link', href:"${config.site_contextPath}topics.html","Topics")
+                a(class:'nav-link', href:"${config.site_contextPath}feed.xml","feed")
             }
         }
     }

@@ -26,9 +26,7 @@ layout 'layout/main.tpl', true,
                         }
                         last_month = post.date.format("MMMM yyyy")
                     }
-                    yield "</ul>"
-
+                    //yield "</ul>"
                 }
             }
-
 	    }

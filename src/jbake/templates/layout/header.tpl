@@ -1,6 +1,6 @@
 meta(charset:"utf-8") newLine()
 meta(name:"viewport", content:"width=device-width, initial-scale=1.0") newLine()
 title("${config.site_title}") newLine()
-link(rel:"stylesheet", href:"${config.site_contextPath}css/bootstrap.css") newLine()
 link(rel:"stylesheet", href:"${config.site_contextPath}css/base.css") newLine()
+link(rel:"stylesheet", href:"${config.site_contextPath}css/bootstrap.css") newLine()
 newLine()
