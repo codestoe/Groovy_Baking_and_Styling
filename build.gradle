@@ -1,13 +1,3 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-
-    dependencies {
-        classpath "com.monochromeroad.gradle-plugins:gradle-aws-s3-sync:0.10"
-    }
-}
-
 plugins {
     id 'org.jbake.site' version '1.0.0'
     id "org.groocss.groocss-gradle-plugin" version '0.8'
@@ -38,17 +28,4 @@ groocssfiles {
         inFile = file("src/groocss/base.groovy")
         outFile = file("build/jbake/css/base.css")
     }
-}
-
-import com.monochromeroad.gradle.plugin.aws.s3.S3Sync
-
-task deploy(type: S3Sync) {
-    description = "Deploys my site on a s3 bucket."
-
-    accessKey 'AKIAIUE4KXBVJORVA3SA'
-    secretKey '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'
-
-
-    from "build/jbake"
-    into "groovy-baking"
 }
