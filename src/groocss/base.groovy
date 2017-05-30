@@ -1,9 +1,13 @@
-def backgroundColor = rgba(30, 30, 30, 0.3)
+def backgroundColorStart = c('#e5e5e5')
+def backgroundColorEnd = rgba(70, 70, 70, 0.3)
 
 body {
     fontSize '1em'
-    borderColor backgroundColor.brighter()
-    background backgroundColor
+    background "-webkit-linear-gradient(top, $backgroundColorStart 0%, ${backgroundColorEnd} 100%)"
+    background "-o-linear-gradient(top, $backgroundColorStart 0%, ${backgroundColorEnd} 100%)"
+    background "linear-gradient(to bottom, $backgroundColorStart 0%, ${backgroundColorEnd} 100%)"
+    backgroundRepeat 'repeat-y'
+    backgroundSize 'cover'
 }
 
 nav {
@@ -14,7 +18,6 @@ _.wrapBody {
     marginLeft '10px'
     height 'auto'
     padding '0 0 20px 20px'
-    background c('#dddddd')
 }
 
 
