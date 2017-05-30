@@ -1,0 +1,263 @@
+= Groovie Baking and Styling
+
+== Introduction
+Hello everyone, thank you for coming to our talk Groovy Baking and Styling.
+My Name is Christian Streibl, I'm a human being.
+Here we can find my twitter and github handle, which I'm not sure how to pronounce it.
+And the company I'm working with.
+Everyone is welcome to give feedback for this talk.
+
+before we begin:
+be excellent to each other. This is a small reminder on the code of conduct of this event.
+It is a friendly reminder for us how we want us and others to be(-have)
+
+
+So lets get down to business.
+
+Who knows what a static website is?
+
+great
+
+ A static website is a web page where the code on the server is exactly the same, as sent to the client.
+On a static website, individual web pages include static content. They may also contain client-side scripts.
+By contrast, a dynamic website relies on server-side processing.
+
+
+With static websites, we can imagine a lot of effort, writing all those html files.
+Living in this era of automation, why not automate it.
+Of course, we don't have to reinvent the wheel.
+On the webs you can find heaps of static site generators.
+Supporting a lot of different languages.
+Since we feel groovy, lets have a look at a static site generator supporting groovy.
+
+The most alive, supported and documented at that time, is JBake
+
+== JBake:
+ Let's see how JBake is doing things:
+
+
+=== Jbake intro <code>
++ switch to console
+
+ We make a new folder for our first JBake projekt
+```
+mkdir OurFirstJBakeProject && cd OurFirstJBakeProject
+jbake -i -t groovy
+jbake
+jbake -s
+```
++ switch to browser and show website
+
+ Here you can see the reference-example for JBake's groovy SimpleTemplateEngine.
+
+ * Home, with menu
+ * Posts
+ * generated feed.xml
+
++ switch back to code
+
+Lets take a look at the folder structure
+```
+tree
+```
+
+Here we can see the folder structure... (show the folder structure and interate through the next ===chapters
+perhaps change to IDE)
+
+=== Assets Dir
+The assets directory is where you should place your static files such as images, CSS files and JavaScript files or the like.
+These files are copied over to the baked output folder as is. Standard output folder is output by the way.
+You can create any directory structure you like in the assets directory and this structure will be maintained when copied.
+
+Questions?
+
+=== Content Dir
+The content directory is where your content files should be placed, these files will be "mixed" with the templates to bake some output.
+Again you can create any directory structure you like for your content, this structure will be maintained when the baked output is created.
+
+The extension of the content file determines what type of content it contains. We use asciidoc only.
+
+Lets have a look at such a content file
+
++ open project in atom
+
+ * The metadata header defines some basic information that JBake uses when baking the content file.
+ * In the header you must have at least the status & type fields, the rest are optional.
+ ** The type field defines the template used to bake the content with.
+ ** You can also define a default status in your configuration. Then you would not have to define a type in the header.
+ ** For an AsciiDoc formatted content file the metadata header section is optional. One more reason to use asciidoc.
+ *** JBake related attributes included in the AsciiDoc header require the `jbake-` prefix to avoid any collisions.
+ * If you leave the date field out then the files last modified timestamp will be used instead.
+ This is especially important, when you want to have an ordered list of contents, for example a list of blog entries.
+
+Questions?
+
+=== Templates
+The templates directory is where your templates files go, these files are "mixed" with your content files, so you can bake em.
+
+ * You should place your templates into the root of this directory.
+ * The extension of the template file determines the template engine
+ * It is recommended that you stick to just 1 type of templates in your project.
+ My personal reasons are: it's more consistent and I have just one favourite template engine anyway.
+
+There are three different groovy template engines supported.
+
+ * Groovy’s SimpleTemplateEngine (.gsp .groovy)
+ * Groovy’s XmlTemplateEngine (.gxml)
+ * Groovy’s MarkupTemplateEngine (.tpl)
+
+Now lets have a quick look at a .gsp file (SimpleTemplateEngine:
+
++ Switch to Atom and show archive.gsp file in example_project_groovy.
+
+The .gsp file is like HTML where you can embed code with everything between <% %>
+Here you can add other templates by using import. That is cool, since we like modularization and reusability.
+We have to be careful. Not all templates can be used everywhere.
+Here for example, the header.gsp opens the <html> mark and the footer closes it.
+
+We will have a look at the MarkupTemplateEngine later, when we put our hands on what I have prepared for us.
+
++ Stay in Atom and switch to jbake.properties
+
+=== jbake.properties
+The jbake.properties file contains meta information about the baking.
+
+It allows you to customise the configuration of JBake for your project.
+For example you can change the name of the folder that stores your content or templates, decide whether to generate a RSS feed.
+JBake ships with a default configuration file (default.properties) that defines the defaults for these options.
+However you can choose to override these by defining options in your jbake.properties file.
+
+You can also comment out any configuration options with hash
+
+Like the build.gradle file, the jbake.properties file describes your project.
+
+=== jbake-gradle-plugin
+Speaking of gralde.
+
+Can't we bake with gradle?
+Of course we can! there is the jbake-gradle-plugin and just about a month ago version 1.0 was released, yay!
+
+To bake with gradle, we need some hands on.
+
++switch to console
+
+For the gradle-plugin the standard source tree is defined as src/jbake/ and the baked site into jbake as subdir of $buildDir/.
+```
+mkdir -p src/jbake
+mv * src/jbake
+```
+
+Now we add a build.gradle file and configure the jbake-gradle-plugin
+```
+atom build.gradle
+
+plugins {
+    id 'org.jbake.site' version '1.0.0'
+}
+```
+This will add a bake task to your build.
+//TODO decide wheather to host the result. When (with jbake -s) ask for mentioning gradle run feature for Hackergarten.
+
+So lets build and verify
+```
+gradle bake
+jbake -s build/jbake
+```
+
++ switch to browser verify the build
++ now load the project in IDE as gradle build.
+
+Now that we have gradle, we can also migrate the jbake.properties in the build.gradle:
+
+* Properties in build.gradle (code: copy from props) and format
+
+So lets see how our progress time ratio is and make an agile decision what's next.
+We have two more topics to elaborate.
+One is Styling with GrooCSS and the other is the fully automated publishing of our site.
+
+Who wants Styling at all?
+Who wants the publishment at all?
+Who wants Styling first?
+Who wants the publishment first?
+
+== GrooCSS
+Now what we did, was building a s(i/a)mple static site with jbake and gradle.
+Somehow it does not represent our understanding of individual style.
+That's why we want to go for some style now.
+
+Who does not know what Cascading Style Sheet, short CSS, is?
+Style in the webs is done by something called Cascading Style Sheet - CSS
+
+=== Css intro:
+So let's have a quick look at this CSS
+
+* CSS is the way to layout and style web pages
+* CSS has a set of rules, Sthat are applied according to _cascading_ onto a _matching_ element
+
+Allways remember, the CSS Hirarchy:
+Browser, Client, Author:
+
+* browser: default layout
+* user: browser-user custom layout (i.E. accessibility)
+* author: us, so anything included via link or style tag/attribute
+* the latter overrides the former rule by rule
+
+
+==== CSS Selectors
+
+* a query language for html elements
+* usualy defines a pattern in the element tree
+* similar to xpath
+* uses tags, classes, attributes and relationships
+* specificity sets the priority in concurrent rule definitions
+* at last: last seen rule wins
+
+* comment: specificity vs id expensive in js (http://specificity.keegan.st)
+
+=== GrooCSS:
+Now putting together all these css can be groovy, with GrooCSS.
+
+groocss.org says:
+
+ "Like Less but without inventing a new language.
+GrooCSS let's you code your CSS in Groovy, using a natural Groovy DSL with code completion if your IDE supports it.
+It was created by Adam L. Davis (@adamldavis) and inspired by the many other Groovy-based projects out there...
+Principles: Stay in pure Groovy, get as close to CSS as possible, and maximize code reuse."
+
+Ok, but what does this mean in detail?
+
+* DSL similar to CSS but with camel-case and some modifications to make it valid Groovy.
+* Keyframes, media, charset, and font-face support.
+* Automatically adds -webkit, -ms, -moz, -o extensions! (configurable)
+* Color support with rgb, rgba, hex, and named colors
+* Minimization (compress)
+* Support for transforms directly (transformX, etc),
+* Math functions (sqrt, sin, cos, toRadians, etc.) and built-in Measurement math.
+* Unit methods (unit, getUnit, convert)
+* Ability to extend style-groups and add internal groups.
+* Pseudo-classes in DSL (nthChild, etc.)
+* Multiple ways to configure: Config.builder() or using withConfig
+* Close to CSS syntax using getAt, putAt, operator-overloading, underscore, methodMissing, and propertyMissing
+* Translator to convert from existing CSS.
+* Available pretty print (using Config)
+
+Ok, now lets put this into real code
+
++ switch to IDE
+
+Since we already build with gradle we use it to configure our groovy css build.
+We do this, so our built css files are put into build/jbake/css
+
+
+* Gradle plugin
+* Styling(code)
+* Git-project ( call for participate (pullreq/issue)
+
+//(This is not that important, so if there is no time fast foreward)
+== Automated (Continious) Publishment
+
+
+=== Deploy to Aws by hand
+=== Git repo
+=== TravisCI
+=== Webhooks
