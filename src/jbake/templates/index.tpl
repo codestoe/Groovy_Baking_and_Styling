@@ -2,12 +2,20 @@ layout 'layout/main.tpl', true,
     title: "Groovy Baking",
     topics: topics,
     bodyContents: contents {
-        div(class:jumbotron){
-            h1 {yield "Groovy Baking and Styling"}
-            p{
-                yield "This project is available at "
-                a(href:"https://github.com/codestoe/Groovy_Baking_and_Styling","github/codestoe/Groovy_Baking_and_Styling")
+        div(class:'jumbotron'){
+        div(class: 'row'){
+            div(class:'col-lg-8 col-md-8') {
+                h1 {yield "Groovy Baking and Styling"}
+                p{
+                    yield "This project is available at "
+                    a(href:"https://github.com/codestoe/Groovy_Baking_and_Styling","github/codestoe/Groovy_Baking_and_Styling")
+                }
             }
+            div(class:'col-lg-4 col-md-4') {
+                div(class: 'gr8conf_Animation'){
+                }
+            }
+        }
         }
         hr(class:'standardDivider')
         div(class:indexContent) {

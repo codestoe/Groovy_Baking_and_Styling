@@ -13,7 +13,7 @@ nav {
 _.wrapBody {
     marginLeft '10px'
     height 'auto'
-    padding '0 20px'
+    padding '0 0 20px 20px'
     background c('#dddddd')
 }
 
@@ -22,6 +22,7 @@ div _.articleHeader {
     marginTop 10.px
     marginLeft 20.px
 }
+
 
 _.indexContent {
     marginBottom 10.px
@@ -33,8 +34,27 @@ _.blogDate {
     marginTop 5.px
 }
 
+_.blogDate % hover { color blue }
+
 sg '#olderPosts',  {
     marginLeft 5.px
+}
+
+_.gr8conf_Animation {
+    width 96.px
+    minHeight 100.px
+    marginRight 20.px
+    background 'url("img/gr8conf.png")'
+    position 'relative'
+    animation 'moveIt 5s infinite'
+}
+
+keyframes('moveIt') {
+    0 % { translateY(-30.px) }
+    25 % { translateX(60.px) }
+    50 % { translateY(30.px) }
+    75 % { translateX(-60.px) }
+    100% { translateY(-30.px) }
 }
 
 String randomColorNumber = String.format("%06X", new Random().nextInt(2 ** 24))

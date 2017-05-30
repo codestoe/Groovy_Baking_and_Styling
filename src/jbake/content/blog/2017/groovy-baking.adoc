@@ -1,6 +1,6 @@
 = Groovy Baking
 Christian Streibl
-2017-05-17
+2017-04-17
 :jbake-type: post
 :jbake-status: published
 :jbake-tags: blog, groovy, static-stie, jbake, asciidoc

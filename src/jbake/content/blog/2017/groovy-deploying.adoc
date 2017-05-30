@@ -1,0 +1,31 @@
+= Groovy Deploying
+Christian Streibl
+2017-05-31
+:jbake-type: post
+:jbake-status: draft
+:jbake-tags: blog, groovy, gradle, CD, Travis-CI
+:idprefix:
+
+There are many ways to automatically deploy your static site. Since there is no generic example,
+we do the most easy one ;)
+
+== Gradle
+gradle is great, though it turned to the kotlin side. Kotlin is not that bad, so we use gradle anyway.
+
+=== Configure the gradle build
+Lets See how.
+
+== TravisCI
+You simply sign up at TravisCI with your github account.
+Describe your build with the .travis.yml file
+Since TravisCI has access to your repos, it will check if there is a .travis.yml file.
+With this file existing, TravisCI automatically builds your project.
+
+=== .travis.yml
+This is quite straight forward and there are a lot of examples and inspiring projects on the webs.
+
+== Where to host
+One way could be an AWS S3 Bucket.
+
+=== S3 Config Users and Policies
+It is recommended to have an additional IAM-User
