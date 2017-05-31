@@ -217,6 +217,8 @@ Browser, Client, Author:
 === GrooCSS:
 Now putting together all these css can be groovy, with GrooCSS.
 
++ swtich to browser
+
 groocss.org says:
 
  "Like Less but without inventing a new language.
@@ -241,16 +243,48 @@ Ok, but what does this mean in detail?
 * Translator to convert from existing CSS.
 * Available pretty print (using Config)
 
-Ok, now lets put this into real code
+We still have our example from before.
+Somehow we are totally happy with the general setup and content. So we wont change anything there.
+The only thing that is not cool enough for us, are some minor style issues, like the page-title.
+We think it is too small and the margin is not correct.
 
-+ switch to IDE
+So lets fix this.
+
++ switch to console
 
 Since we already build with gradle we use it to configure our groovy css build.
 We do this, so our built css files are put into build/jbake/css
 
+So hands-on time:
+```
+build.gradle add: id "org.groocss.groocss-gradle-plugin" version '0.8'
 
-* Gradle plugin
-* Styling(code)
+mkdir src/groocss && cd myStyle.groocss
+
+add: _.adjustHeader {
+         fontSize 2.em
+         marginTop 60.px
+     }
+
+in src/jbake/templates/index.gsp add adjustHeader to class of page-header
+```
+Now all we need is to tell grooCSS where to find the file to convert and where the output file should go.
+```
+groocssfiles {
+    css {
+        inFile = file("src/groocss/myStyle.groocss")
+        outFile = file("build/jbake/css/myStyle.css")
+    }
+}
+
+gradle clean bake convertCSS
+jbake -s build/jbake
+```
++ switch to browser
+
++ Audience poll: Do you want to go on groocss, I can show my example project originally designed for this talk,
+and/or show the continuous publishment.
+
 * Git-project ( call for participate (pullreq/issue)
 
 //(This is not that important, so if there is no time fast foreward)
@@ -260,4 +294,3 @@ We do this, so our built css files are put into build/jbake/css
 === Deploy to Aws by hand
 === Git repo
 === TravisCI
-=== Webhooks

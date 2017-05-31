@@ -27,7 +27,7 @@ groocss {
 
 groocssfiles {
     css {
-        inFile = file("src/groocss/base.groovy")
+        inFile = file("src/groocss/base.groocss")
         outFile = file("build/jbake/css/base.css")
     }
 }

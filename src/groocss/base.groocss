@@ -1,4 +1,4 @@
-def backgroundColorStart = c('#e5e5e5')
+def backgroundColorStart = c('#eee')
 def backgroundColorEnd = rgba(70, 70, 70, 0.3)
 
 body {
@@ -44,7 +44,7 @@ sg '#olderPosts',  {
 }
 
 _.gr8conf_Animation {
-    width 96.px
+    width 100.px
     minHeight 100.px
     marginRight 20.px
     background 'url("img/gr8conf.png")'
